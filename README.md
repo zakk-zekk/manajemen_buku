@@ -10,7 +10,7 @@ Identitas Peserta
 
 #Deskripsi Proyek
 Aplikasi ini merupakan sistem manajemen data buku yang dibuat menggunakan Laravel.  
-Fungsinya adalah untuk mengelola data buku seperti menambah buku baru, menampilkan daftar buku, mengubah data buku, dan menghapus data buku.  
+Fungsinya adalah untuk mengelola data buku seperti menambah buku baru, menampilkan daftar buku, mengubah data buku, dan menghapus data buku.
 Proyek ini memanfaatkan fitur CRUD dan terhubung dengan database MySQL menggunakan Eloquent ORM.
 
 ---
