@@ -1,10 +1,30 @@
-<h2>Tambah Buku</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tambah Buku</title>
+</head>
+<body>
 
-<form action="{{ route('buku.store') }}" method="POST">
+<h1>Tambah Buku</h1>
+<a href="{{ route('buku.index') }}">Kembali</a>
+
+<form method="POST" action="{{ route('buku.store') }}">
     @csrf
-    Judul : <input type="text" name="judul"><br>
-    Penulis : <input type="text" name="penulis"><br>
-    Penerbit : <input type="text" name="penerbit"><br>
-    Tahun : <input type="number" name="tahun"><br>
+
+    <label>Judul:</label><br>
+    <input type="text" name="judul" required><br><br>
+
+    <label>Penulis:</label><br>
+    <input type="text" name="penulis" required><br><br>
+
+    <label>Penerbit:</label><br>
+    <input type="text" name="penerbit" required><br><br>
+
+    <label>Tahun Terbit:</label><br>
+    <input type="number" name="tahun_terbit" required><br><br>
+
     <button type="submit">Simpan</button>
 </form>
+
+</body>
+</html>

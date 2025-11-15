@@ -1,19 +1,24 @@
-<h2>Daftar Buku</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daftar Buku</title>
+</head>
+<body>
 
-<form method="GET" action="{{ route('buku.index') }}">
-    <input type="text" name="keyword" placeholder="Cari buku...">
-    <button type="submit">Cari</button>
-</form>
-
+<h1>Daftar Buku</h1>
 <a href="{{ route('buku.create') }}">Tambah Buku</a>
 
-<table border="1">
+@if(session('success'))
+    <p style="color: green;">{{ session('success') }}</p>
+@endif
+
+<table border="1" cellpadding="8">
     <tr>
         <th>ID</th>
         <th>Judul</th>
         <th>Penulis</th>
         <th>Penerbit</th>
-        <th>Tahun</th>
+        <th>Tahun Terbit</th>
         <th>Aksi</th>
     </tr>
 
@@ -23,13 +28,14 @@
         <td>{{ $b->judul }}</td>
         <td>{{ $b->penulis }}</td>
         <td>{{ $b->penerbit }}</td>
-        <td>{{ $b->tahun }}</td>
+        <td>{{ $b->tahun_terbit }}</td>
         <td>
             <a href="{{ route('buku.edit', $b->id) }}">Edit</a>
-            <form action="{{ route('buku.destroy', $b->id) }}" method="POST">
+
+            <form action="{{ route('buku.destroy', $b->id) }}" method="POST" style="display:inline;">
                 @csrf
                 @method('DELETE')
-                <button type="submit">Hapus</button>
+                <button onclick="return confirm('Yakin ingin menghapus buku ini?')">Hapus</button>
             </form>
         </td>
     </tr>
@@ -37,4 +43,5 @@
 
 </table>
 
-{{ $buku->links() }}
+</body>
+</html>
